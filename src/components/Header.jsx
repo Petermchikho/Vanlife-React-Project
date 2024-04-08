@@ -28,6 +28,7 @@ export default function Header(){
             <img 
                 src={icon}
                 className="login-icon"
+                alt=""
             />
         </Link>
     
