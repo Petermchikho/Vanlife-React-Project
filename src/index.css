@@ -906,4 +906,7 @@ img.graph {
     }
   }
  
-  
+  .main{
+    padding: 100px 5% 5% 5% ;
+    min-height: 100vh;
+  }

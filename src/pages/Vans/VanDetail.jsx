@@ -12,7 +12,7 @@ export default function VanDetail() {
     }, [params.id])
 
     return (
-        <div className="van-detail-container main">
+        <div className="van-detail-container">
             {van ? (
                 <div className="van-detail">
                     <img alt={van.name} src={van.imageUrl} />
