@@ -7,6 +7,9 @@ export default function HostLayout() {
         textDecoration: "underline",
         color: "#161616"
     }
+    function logOut(){
+        return localStorage.removeItem("loggedin")
+    }
 
     return (
         <>
@@ -39,6 +42,7 @@ export default function HostLayout() {
                 >
                     Reviews
                 </NavLink>
+                <button onClick={logOut}>logout</button>
 
             </nav>
             <Outlet />
