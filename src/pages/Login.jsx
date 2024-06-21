@@ -17,7 +17,7 @@ export async function action({ request }) {
     const email = formData.get("email")
     const password = formData.get("password")
     try {
-        const data = await loginUser({ email, password })
+        await loginUser({ email, password })
         localStorage.setItem("loggedin", true)
         //return window.location.href = '/host'; 
          const pathname=new URL(request.url).searchParams.get("redirectTo") || "/host"
