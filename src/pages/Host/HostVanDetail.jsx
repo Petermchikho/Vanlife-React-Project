@@ -1,11 +1,11 @@
 import React from "react"
-import { Link, NavLink, Outlet, useLoaderData } from "react-router-dom"
-import { getHostVans } from "../../api"
+import { useParams, Link, NavLink, Outlet, useLoaderData } from "react-router-dom"
+import { getVan } from "../../api"
 import { requireAuth } from "../../utils"
 
-export async function loader({ params,request }) {
+export async function loader({ params, request }) {
     await requireAuth(request)
-    return getHostVans(params.id)
+    return getVan(params.id)
 }
 
 export default function HostVanDetail() {
@@ -27,7 +27,7 @@ export default function HostVanDetail() {
 
             <div className="host-van-detail-layout-container">
                 <div className="host-van-detail">
-                    <img src={currentVan.imageUrl} alt=""/>
+                    <img src={currentVan.imageUrl} />
                     <div className="host-van-detail-info-text">
                         <i
                             className={`van-type van-type-${currentVan.type}`}

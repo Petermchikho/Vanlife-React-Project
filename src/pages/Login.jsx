@@ -16,14 +16,15 @@ export async function action({ request }) {
     const formData = await request.formData()
     const email = formData.get("email")
     const password = formData.get("password")
+    const pathname = new URL(request.url)
+        .searchParams.get("redirectTo") || "/host"
+    
     try {
-        await loginUser({ email, password })
+        const data = await loginUser({ email, password })
         localStorage.setItem("loggedin", true)
-        //return window.location.href = '/host'; 
-         const pathname=new URL(request.url).searchParams.get("redirectTo") || "/host"
-         const response= redirect(pathname)
-         response.body=true
-         return response
+        const response = redirect(pathname)
+        response.body=true
+        return response
     } catch(err) {
         return err.message
     }
